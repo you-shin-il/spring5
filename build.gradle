@@ -1,0 +1,46 @@
+plugins {
+	id 'java'
+	id 'org.jetbrains.intellij' version '0.4.5'
+}
+
+group 'com.spring5.ysi'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	springVersion = '5.0.5.RELEASE'
+}
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+dependencies {
+	compile "org.springframework:spring-core:${springVersion}"
+	compile "org.springframework:spring-context:${springVersion}"
+	compile "org.springframework:spring-beans:${springVersion}"
+	compile "org.springframework:spring-webmvc:${springVersion}"
+	compile "org.springframework:spring-test:${springVersion}"
+	compile "org.springframework:spring-jdbc:${springVersion}"
+	compile "org.slf4j:slf4j-simple:1.7.25"
+	compile "org.projectlombok:lombok:1.16.20"
+	testCompile("junit:junit:4.12")
+	testCompile("org.testng:testng:6.14.2")
+	testCompile("org.mockito:mockito-core:2.15.0")
+	testCompile("org.junit.jupiter:junit-jupiter-api:5.1.0")
+	testRuntime("org.junit.jupiter:junit-jupiter-engine:5.1.0")
+	testRuntime("org.junit.vintage:junit-vintage-engine:5.1.0")
+}
+
+intellij {
+	version '2018.3.5'
+}
+patchPluginXml {
+	changeNotes """
+	  Add change notes here.<br>
+	  <em>most HTML tags may be used</em>"""
+}
